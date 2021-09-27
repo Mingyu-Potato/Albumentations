@@ -4,13 +4,15 @@ import cv2
 from matplotlib import pyplot as plt
 
 MIN_MATCH_COUNT = 10  # 최소 특징점 수를 10으로 설정
-target = cv2.imread("./Template_Matching/017A8500_HIGH.JPG", 0)
-template = cv2.imread("./Template_Matching/017A8500_High_Template.jpg", 0)
+target = cv2.imread("./Template_Matching/HARD_7.jpg")
+gray = cv2.cvtColor(target, cv2.COLOR_BGR2GRAY)
+target = cv2.cvtColor(target, cv2.COLOR_BGR2RGB)
+template = cv2.imread("./Template_Matching/HARD_7_Template.jpg", 0)
 
 sift = cv2.SIFT_create()
 # find the keypoints and descriptors with SIFT
 kp1, des1 = sift.detectAndCompute(template, None)
-kp2, des2 = sift.detectAndCompute(target, None)
+kp2, des2 = sift.detectAndCompute(gray, None)
 
 FLANN_INDEX_KDTREE = 0
 index_params = dict(algorithm=FLANN_INDEX_KDTREE, trees=5)
