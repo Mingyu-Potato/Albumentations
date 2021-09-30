@@ -10,7 +10,7 @@ from albumentations.augmentations.transforms import GaussianBlur, HorizontalFlip
 from albumentations.pytorch import ToTensorV2
 import cv2
 
-image = cv2.imread('./a.JPG')
+image = cv2.imread('./image/SFR-03(Normal)/origin/017A8500.JPG')
 image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
 albumentation_transform = A.Compose(
